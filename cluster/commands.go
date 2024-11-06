@@ -1,28 +1,32 @@
-package main
+package cluster
 
 import (
 	"github.com/spf13/cobra"
 )
 
-var rootCmd = &cobra.Command{
+func init() {
+	RootCmd.AddCommand(CreateClusterCmd, StatusCmd, DeployCmd)
+}
+
+var RootCmd = &cobra.Command{
 	Use:   "tufin",
 	Short: "Tufin client for managing a Kubernetes cluster",
 }
 
-var createClusterCmd = &cobra.Command{
+var CreateClusterCmd = &cobra.Command{
 	Use:   "cluster",
 	Short: "Create a k3s Kubernetes cluster",
-	Run:   CreateClusterCmd,
+	Run:   createClusterCmd,
 }
 
-var deployCmd = &cobra.Command{
+var DeployCmd = &cobra.Command{
 	Use:   "deploy",
 	Short: "Deploy MySQL and WordPress pods",
-	Run:   DeployCmd,
+	Run:   deployCmd,
 }
 
-var statusCmd = &cobra.Command{
+var StatusCmd = &cobra.Command{
 	Use:   "status",
 	Short: "Print the status of pods in the default namespace",
-	Run:   StatusCmd,
+	Run:   statusCmd,
 }

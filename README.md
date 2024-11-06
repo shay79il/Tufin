@@ -59,6 +59,6 @@ kubectl port-forward svc/wordpress 8080:80
 We could use persistent storage for the MySQL database. 
 
 
-License
+### License
 This project is licensed under the MIT License. 
 
